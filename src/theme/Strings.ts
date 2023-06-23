@@ -13,6 +13,7 @@ export const Strings = {
     PlaceHolder: {
       Login: "Tap Here to type",
       Password:"Enter Password",
+      Name:"Enter Name"
     },
     errorMessage: {
         Email:"Sorry we haven’t launched in your workplace or university yet. Please use another email or join waitlist."

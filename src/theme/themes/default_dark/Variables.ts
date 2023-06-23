@@ -19,3 +19,14 @@ export default {
   Colors,
   NavigationColors,
 };
+
+export const screenStepMapLabel = [
+  'Dashboard',
+  'Name',
+  'Gender',
+  'Country',
+  'ProfileStaticge',
+  'Adventures',
+  'Wishes',
+  'NextAdventures',
+];

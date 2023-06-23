@@ -15,9 +15,10 @@ import { MMKV } from 'react-native-mmkv';
 
 import { api } from '../services/api';
 import theme from './theme';
-
+import profile from "./profile"
 const reducers = combineReducers({
   theme,
+  profile,
   [api.reducerPath]: api.reducer,
 });
 
@@ -40,7 +41,7 @@ export const reduxStorage: Storage = {
 const persistConfig = {
   key: 'root',
   storage: reduxStorage,
-  whitelist: ['theme', 'auth'],
+  whitelist: ['theme', 'auth','profile'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);

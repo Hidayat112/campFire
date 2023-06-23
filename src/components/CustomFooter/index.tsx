@@ -3,7 +3,10 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useTheme } from 'MyApp/src/hooks';
 
-const CustomFooter = ({handleOnPress = () =>{}}) => {
+const CustomFooter = ({
+  handleOnPress = () => {},
+  disableNextButton = false,
+}) => {
   const { Images } = useTheme();
 
   return (
@@ -16,7 +19,14 @@ const CustomFooter = ({handleOnPress = () =>{}}) => {
       }}
     >
       <TouchableOpacity onPress={handleOnPress}>
-        <Image source={Images.icons.next} style={{ height: 50, width: 50 }} />
+        <Image
+          source={Images.icons.next}
+          style={{
+            height: 50,
+            width: 50,
+            opacity: disableNextButton ? 0.3 : 1,
+          }}
+        />
       </TouchableOpacity>
     </View>
   );

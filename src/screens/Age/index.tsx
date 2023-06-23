@@ -12,16 +12,14 @@ import CustomTextInput from 'MyApp/src/components/CustomTextInput/CustomTextInpu
 import { useDispatch, useSelector } from 'react-redux';
 import CustomActionSheet from '../../components/ActionSheet';
 import { updateState } from '../../store/profile';
+import { getAgeRange } from '../../utils';
 const { height, width } = Dimensions.get('window');
 
-const Country = ({ navigation, route }) => {
+const Age = ({ navigation, route }) => {
   const refActionSheet = useRef(null);
-  const { country: defaultCountry, gender: defaultGender } = useSelector(
-    state => state.profile,
-  );
-
+  const defaultAge = useSelector(state => state.profile.age);
   const dispatch = useDispatch();
-  const [country, setCountry] = useState(defaultCountry);
+  const [age, setAge] = useState(defaultAge);
 
   const handleCancel = () => {
     refActionSheet.current?.hide();
@@ -32,7 +30,7 @@ const Country = ({ navigation, route }) => {
   }, []);
   return (
     <CustomHeader
-      titleText="What country are you in?"
+      titleText="What's your age?"
       infoIcon={false}
       onBackPress={() => navigation.navigate('Gender')}
     >
@@ -48,44 +46,34 @@ const Country = ({ navigation, route }) => {
             refActionSheet.current.show();
           }}
         >
-          <Text style={{ fontSize: RFValue(19) }}>{country}</Text>
+          <Text style={{ fontSize: RFValue(19) }}>{age}</Text>
         </TouchableOpacity>
 
         <CustomActionSheet
           ref={refActionSheet}
-          options={['India', 'UK', 'Canada', 'USA', 'Australia']}
+          options={getAgeRange(18,418)}
           placeholder="Select Country"
           onCancel={handleCancel}
           actionSheetStyle={{ borderRadius: 20 }}
-          currentValue={country}
-          onOptionSelect={country => {
-            if (!country) return;
-            setCountry(country);
-            dispatch(updateState({ country }));
+          currentValue={age}
+          onOptionSelect={age => {
+            if (!age) return;
+            setAge(age);
+            dispatch(updateState({ age }));
           }}
         />
       </View>
       <CustomFooter
-        disableNextButton={!(country.length > 0)}
+        disableNextButton={!(age.length > 0)}
         handleOnPress={() => {
-          if (
-            defaultGender?.toLowerCase() == 'couple' ||
-            defaultGender?.toLowerCase() == 'family'
-          )
-          {
-            dispatch(updateState({age:"not applicable"}))
-            navigation.navigate('ProfileStatic');
-
-          }
-          
-            navigation.navigate('Age');
+          navigation.navigate('ProfileStatic');
         }}
       />
     </CustomHeader>
   );
 };
 
-export default Country;
+export default Age;
 
 const styles = StyleSheet.create({
   container: {
