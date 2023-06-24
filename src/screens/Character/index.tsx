@@ -12,14 +12,16 @@ import CustomTextInput from 'MyApp/src/components/CustomTextInput/CustomTextInpu
 import { useDispatch, useSelector } from 'react-redux';
 import CustomActionSheet from '../../components/ActionSheet';
 import { updateState } from '../../store/profile';
-import { getAgeRange } from '../../utils';
 const { height, width } = Dimensions.get('window');
 
-const Age = ({ navigation, route }) => {
+const Character = ({ navigation, route }) => {
   const refActionSheet = useRef(null);
-  const defaultAge = useSelector(state => state.profile.age);
+  const { personality: defaultPersonality} = useSelector(
+    state => state.profile,
+  );
+
   const dispatch = useDispatch();
-  const [age, setAge] = useState(defaultAge);
+  const [character, setCharacter] = useState(defaultPersonality);
 
   const handleCancel = () => {
     refActionSheet.current?.hide();
@@ -30,7 +32,7 @@ const Age = ({ navigation, route }) => {
   }, []);
   return (
     <CustomHeader
-      titleText="What's your age?"
+      titleText="Almost done! Choose a character to help others understand your personality."
       infoIcon={false}
       onBackPress={() => navigation.navigate('Gender')}
     >
@@ -46,35 +48,45 @@ const Age = ({ navigation, route }) => {
             refActionSheet.current.show();
           }}
         >
-          <Text style={{ fontSize: RFValue(19) }}>{age}</Text>
+          <Text style={{ fontSize: RFValue(19) }}>{character}</Text>
         </TouchableOpacity>
 
         <CustomActionSheet
           ref={refActionSheet}
-          options={getAgeRange(18,418)}
-          placeholder="Select Country"
+          options={['Aladdin(ambitious)','Beast(strong)','General Shag(principled)','John smith(adventurous)','King arthur(strong-willed)']}
+          placeholder="Select a character"
           onCancel={handleCancel}
           actionSheetStyle={{ borderRadius: 20 }}
-          currentValue={age}
-          onOptionSelect={age => {
-            if (!age) return;
-            setAge(age);
-            dispatch(updateState({ age }));
+          currentValue={character}
+          onOptionSelect={personality => {
+            if (!personality) return;
+            setCharacter(personality);
+            dispatch(updateState({ personality:character }));
             handleCancel()
           }}
         />
       </View>
       <CustomFooter
-        disableNextButton={!(age > 0)}
+        disableNextButton={!(character.length > 0)}
         handleOnPress={() => {
-          navigation.navigate('ProfileStatic');
+        //   if (
+        //     defaultGender?.toLowerCase() == 'couple' ||
+        //     defaultGender?.toLowerCase() == 'family'
+        //   )
+        //   {
+        //     dispatch(updateState({age:"not applicable"}))
+        //     navigation.navigate('ProfileStatic');
+
+        //   }
+          
+            navigation.navigate('Photos');
         }}
       />
     </CustomHeader>
   );
 };
 
-export default Age;
+export default Character;
 
 const styles = StyleSheet.create({
   container: {

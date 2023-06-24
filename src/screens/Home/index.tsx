@@ -15,22 +15,22 @@ const Home = ({ navigation, route }) => {
     age,
     gender,
   } = useSelector(state => state.profile);
-  useLayoutEffect(() => {
-    if (mostPriorStep > 1) {
-      if (
-        mostPriorStep > 4 &&
-        age == 'not applicable' &&
-        !(gender?.toLowerCase() == 'couple' || gender?.toLowerCase() == 'family')
-      )
-      {
-        navigation.navigate(screenStepMapLabel[4]);
-      }
-        navigation.navigate(screenStepMapLabel[mostPriorStep - 1]);
-    }
-  }, []);
-  useEffect(() => {
-    dispatch(updateState({ step: route?.params?.step }));
-  }, []);
+  // useLayoutEffect(() => {
+  //   if (mostPriorStep > 1) {
+  //     if (
+  //       mostPriorStep > 4 &&
+  //       age == 'not applicable' &&
+  //       !(gender?.toLowerCase() == 'couple' || gender?.toLowerCase() == 'family')
+  //     )
+  //     {
+  //       navigation.navigate(screenStepMapLabel[4]);
+  //     }
+  //       navigation.navigate(screenStepMapLabel[mostPriorStep - 1]);
+  //   }
+  // }, []);
+  // useEffect(() => {
+  //   dispatch(updateState({ step: route?.params?.step }));
+  // }, []);
   return (
     <CustomHeader titleText="" backIcon={false} infoIcon={false}>
       <View style={styles.container}>

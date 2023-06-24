@@ -18,7 +18,8 @@ export default function ({}: ThemeVariables) {
       translate: require('./assets/images/translate.png'),
       back: require('./assets/images/right.png'),
       info: require('./assets/images/info.png'),
-      next: require('./assets/images/next.png')
+      next: require('./assets/images/next.png'),
+      camera:require('./assets/images/camera.png')
     },
   };
 }

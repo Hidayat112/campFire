@@ -62,6 +62,7 @@ const Country = ({ navigation, route }) => {
             if (!country) return;
             setCountry(country);
             dispatch(updateState({ country }));
+            handleCancel()
           }}
         />
       </View>

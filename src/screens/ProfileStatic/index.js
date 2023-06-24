@@ -35,7 +35,7 @@ const ProfileStatic = ({ navigation, route }) => {
       </View>
       <CustomFooter
         handleOnPress={() => {
-          navigation.navigate('Name');
+          navigation.navigate('Adventures');
         }}
       />
     </CustomHeader>

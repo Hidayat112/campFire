@@ -7,6 +7,11 @@ import Gender from '../screens/Gender/Gender';
 import Country from '../screens/Country';
 import Age from '../screens/Age';
 import ProfileStatic from '../screens/ProfileStatic';
+import Adventures from '../screens/Adventures';
+import Wishes from '../screens/Wishes';
+import NextAdventures from '../screens/NextAdventures';
+import Character from '../screens/Character';
+import Photos from '../screens/Photos';
 
 const Stack = createStackNavigator();
 
@@ -19,9 +24,11 @@ const HomeNavigator = () => {
     { name: 'Country', intialParams: { step: 4 }, component: Country },
     { name: 'Age', intialParams: { step: 5 }, component: Age },
     { name: 'ProfileStatic', intialParams: { step: 6 }, component: ProfileStatic },
-    { name: 'Adventures', intialParams: { step: 7}, component: Home },
-    { name: 'Wishes', intialParams: { step: 8 }, component: Home },
-    { name: 'NextAdventures', intialParams: { step: 9 }, component: Home },
+    { name: 'Adventures', intialParams: { step: 7}, component: Adventures },
+    { name: 'Wishes', intialParams: { step: 8 }, component: Wishes },
+    { name: 'NextAdventures', intialParams: { step: 9 }, component: NextAdventures },
+    { name: 'Character', intialParams: { step: 9 }, component: Character },
+    { name: 'Photos', intialParams: { step: 9 }, component: Photos },
   ];
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>

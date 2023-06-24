@@ -18,11 +18,12 @@ const CustomActionSheet = forwardRef(
     ref,
   ) => {
     return (
-      <ScrollView>
+
         <ActionSheet
           ref={ref}
           containerStyle={[styles.actionSheet, actionSheetStyle]}
-        >
+      >
+              <ScrollView>
           {options.map(option => (
             <TouchableOpacity
               style={{
@@ -35,11 +36,11 @@ const CustomActionSheet = forwardRef(
               <Text style={[styles.option, optionStyle]}>{option}</Text>
             </TouchableOpacity>
           ))}
+          </ScrollView>
           <TouchableOpacity onPress={onCancel} style={{ alignItems: 'center' }}>
             <Text style={[styles.cancelOption, cancelOptionStyle]}>Cancel</Text>
           </TouchableOpacity>
         </ActionSheet>
-      </ScrollView>
     );
   },
 );
