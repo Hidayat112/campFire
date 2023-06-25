@@ -13,7 +13,7 @@ export default function CustomTextInput({ error, overrideStyles,errorValue, ...p
           borderBottomWidth: 1.5,
           textAlign: 'center',
           color: 'black',
-          fontFamily: 'Avenir-Heavy',
+          fontFamily: 'Avenir Heavy',
           width: width * 0.65,
         },overrideStyles]}
         {...props}

@@ -1,4 +1,8 @@
 export const Strings = {
+  Photos:
+    ["I have uploaded 3 photos.",
+     "My first photo clear shows my face.",
+    "I have at least one full body photo."],
   Login: "Login",
   Welcome: "Welcome back!",
   ForgotPasswordTitle:"Forgot Password",

@@ -4,6 +4,7 @@ import themes from '../../theme/themes';
 const slice = createSlice({
   name: 'profile',
   initialState: {
+    email:'',
     name: '',
     gender: '',
     country: '',
@@ -34,6 +35,7 @@ export const { updateState } = slice.actions;
 export default slice.reducer;
 
 export type ProfileState = {
+  email: string | null;
   name: string | null;
   description: string | null;
   country: string | null;

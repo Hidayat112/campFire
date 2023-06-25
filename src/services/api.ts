@@ -5,9 +5,10 @@ import {
   fetchBaseQuery,
   FetchBaseQueryError,
 } from '@reduxjs/toolkit/query/react';
-
+export const baseUrl = "https://campfire-campireapi.t3tfm5.easypanel.host/v1/docs/campfire-campireapi.t3tfm5.easypanel.host/v1/auth/register"
 const baseQuery = fetchBaseQuery({
-  baseUrl: process.env.API_URL,
+  // baseUrl: process.env.API_URL,
+  baseUrl
 });
 
 const baseQueryWithInterceptor: BaseQueryFn<
